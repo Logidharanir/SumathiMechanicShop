@@ -1,384 +1,611 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="google-site-verification" content="2Cxw2LSx_qiARhouSK5ppEBbk4gqzwnQfYg82iB5-Qo" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sumathe Mechanic – Bike Service & Repair</title>
-  <!-- Tailwind CSS CDN -->
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="2Cxw2LSx_qiARhouSK5ppEBbk4gqzwnQfYg82iB5-Qo">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sumathi Mechanic – bike service, repair, roadside assistance, pickup and delivery, buying and selling of two-wheelers in Perungudi, Chennai.">
+  <title>Sumathi Mechanic – Bike Service & Repair</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" type="image/png" href="favicon.png">
+
   <style>
-    /* Logo pulse on hover */
-    #logo:hover { animation: pulse 1s infinite; }
-    @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.05);} }
-    /* Text shadow helper */
-    .text-shadow { text-shadow:0 1px 3px rgba(0,0,0,.6); }
+    :root{
+      --bg:#03070d; --panel:#0a1220; --panel2:#0d1828;
+      --text:#f8fafc; --muted:#a8b3c5;
+      --cyan:#22d3ee; --blue:#3b82f6; --purple:#a855f7;
+      --pink:#ec4899; --orange:#fb923c; --green:#22c55e; --yellow:#facc15;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:78px}
+    body{
+      margin:0;overflow-x:hidden;color:#e5e7eb;background:
+      radial-gradient(circle at 10% 5%,rgba(37,99,235,.12),transparent 28%),
+      radial-gradient(circle at 90% 18%,rgba(34,211,238,.09),transparent 26%),
+      linear-gradient(180deg,#03070d 0%,#07101a 55%,#03070d 100%);
+    }
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.32;
+      background:linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),
+                 linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+      background-size:48px 48px;
+    }
+    ::selection{background:rgba(34,211,238,.28);color:#fff}
+    a,button{-webkit-tap-highlight-color:transparent}
 
-    .section-heading {
-  font-size: 1.75rem; /* text-2xl */
-  font-weight: 800;   /* bold */
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #1e3a8a; /* brand blue */
-  text-shadow:
-    0 0 5px rgba(30, 58, 138, 0.4),
-    0 0 10px rgba(30, 58, 138, 0.3),
-    0 0 15px rgba(30, 58, 138, 0.2);
-  letter-spacing: 1px;
-  animation: glowPulse 2.5s ease-in-out infinite;
-}
+    header.sticky{
+      background:rgba(3,7,14,.82)!important;
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(34,211,238,.18);
+      box-shadow:0 8px 30px rgba(0,0,0,.3);
+    }
+    header.sticky::after{
+      content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+      background:linear-gradient(90deg,transparent,var(--cyan),var(--blue),var(--purple),transparent);
+      box-shadow:0 0 14px rgba(34,211,238,.6);
+    }
+    #logo{border:1px solid rgba(34,211,238,.6);box-shadow:0 0 12px rgba(34,211,238,.25)}
 
-@media (min-width: 640px) {
-  .section-heading {
-    font-size: 2rem;
-  }
-}
+    #hero{min-height:clamp(520px,72vh,760px);position:relative;overflow:hidden;background:#02050a}
+    #hero .hero-bg{position:absolute;inset:0;background:#02050a center/cover no-repeat}
+    #hero .hero-bg video{width:100%;height:100%;object-fit:cover}
+    #hero .hero-overlay{
+      position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+      text-align:center;padding:24px;background:
+      radial-gradient(circle at 50% 40%,rgba(34,211,238,.15),transparent 30%),
+      linear-gradient(180deg,rgba(2,6,23,.32),rgba(2,6,23,.84));
+    }
+    #hero h1{max-width:900px;text-shadow:0 0 12px rgba(255,255,255,.16),0 0 32px rgba(34,211,238,.24),0 5px 25px #000}
+    #hero p{max-width:850px;color:#e2e8f0;text-shadow:0 2px 12px #000}
 
-/* Animation for glowing pulse */
-@keyframes glowPulse {
-  0%, 100% {
-    text-shadow:
-      0 0 5px rgba(30, 58, 138, 0.4),
-      0 0 10px rgba(30, 58, 138, 0.3),
-      0 0 15px rgba(30, 58, 138, 0.2);
-  }
-  50% {
-    text-shadow:
-      0 0 10px rgba(30, 58, 138, 0.8),
-      0 0 20px rgba(30, 58, 138, 0.5),
-      0 0 25px rgba(30, 58, 138, 0.4);
-  }
-}
+    .section-heading{
+      width:max-content;max-width:100%;margin:0 auto 28px;text-align:center;
+      font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;letter-spacing:-.02em;
+      background:linear-gradient(90deg,#67e8f9,#60a5fa,#c084fc,#fb7185);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+      -webkit-text-fill-color:transparent;
+      filter:drop-shadow(0 0 10px rgba(34,211,238,.22));
+    }
+    .section-heading::after{
+      content:"";display:block;width:78px;height:3px;margin:10px auto 0;border-radius:99px;
+      background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple),var(--pink),var(--orange));
+      box-shadow:0 0 9px rgba(34,211,238,.8),0 0 18px rgba(168,85,247,.4);
+    }
 
+    .neon-panel{
+      position:relative;overflow:hidden;border-radius:24px;
+      background:linear-gradient(145deg,#07111f,#0b1628 55%,#120c20);
+      border:1px solid rgba(96,165,250,.3);
+      box-shadow:0 24px 70px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06);
+    }
+    .neon-panel::before{
+      content:"";position:absolute;inset:0;pointer-events:none;
+      background:radial-gradient(circle at 8% 15%,rgba(34,211,238,.14),transparent 25%),
+                 radial-gradient(circle at 92% 10%,rgba(168,85,247,.14),transparent 25%);
+    }
 
+    #about{background:linear-gradient(180deg,#050a11,#09111c)!important}
+    #about p{color:#d3dbe7!important}
+    #about img{border:1px solid rgba(34,211,238,.22);box-shadow:0 20px 55px rgba(0,0,0,.45),0 0 30px rgba(34,211,238,.08)}
+
+    #full-service-package{padding:32px;position:relative;overflow:hidden}
+    #full-service-package h3{
+      position:relative;color:#fff!important;text-align:center;font-size:clamp(1.2rem,2.5vw,1.8rem);
+      font-weight:900;margin:0 0 24px;
+      background:linear-gradient(90deg,#67e8f9,#60a5fa,#c084fc,#fb7185);
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    }
+    .package-grid{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .package-item{
+      min-height:72px;display:flex;align-items:center;padding:16px 18px;
+      border-radius:14px;color:#eaf4ff;background:linear-gradient(145deg,#0d2035,#0b1628);
+      border:1px solid rgba(96,165,250,.18);box-shadow:0 8px 24px rgba(0,0,0,.25);
+      transition:.28s ease;
+    }
+    .package-item:hover{transform:translateY(-5px);border-color:rgba(34,211,238,.45);box-shadow:0 12px 30px rgba(0,0,0,.38),0 0 22px rgba(34,211,238,.1)}
+    .package-item::before{content:"";width:3px;height:34px;margin-right:11px;border-radius:5px;background:linear-gradient(var(--cyan),var(--blue),var(--purple));box-shadow:0 0 10px rgba(34,211,238,.6)}
+    .package-item:nth-child(3n+2)::before{background:linear-gradient(var(--purple),var(--pink))}
+    .package-item:nth-child(3n)::before{background:linear-gradient(var(--orange),var(--yellow))}
+    .package-item span{color:#67e8f9!important;font-weight:800;margin-right:4px}
+    .package-summary{position:relative;margin-top:26px;padding-top:22px;text-align:center;border-top:1px solid rgba(148,163,184,.22)}
+    .package-summary .need{color:#cbd5e1;font-style:italic}
+    .package-summary .price{margin:5px 0;color:#67e8f9;font-size:1.25rem;font-weight:900;text-shadow:0 0 14px rgba(34,211,238,.25)}
+    .package-summary p:last-child,.package-summary .small{color:#b7c2d2;font-size:.78rem;line-height:1.6}
+
+    #services{background:radial-gradient(circle at 10% 20%,rgba(37,99,235,.1),transparent 28%),linear-gradient(180deg,#070b12,#0a111b)!important}
+    .service-card{position:relative;background:#0b1220;border:1px solid rgba(255,255,255,.08);overflow:hidden;transition:.35s ease}
+    .service-card::before,.review-card::before{
+      content:"";position:absolute;inset:0;padding:1px;border-radius:inherit;pointer-events:none;
+      background:linear-gradient(125deg,var(--card-a),transparent 30%,transparent 68%,var(--card-b));
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;mask-composite:exclude;opacity:.9;
+    }
+    .service-card:hover{transform:translateY(-7px) scale(1.012);box-shadow:0 18px 45px rgba(0,0,0,.45),0 0 28px rgba(34,211,238,.1)}
+    .service-card img{transition:.6s ease;filter:saturate(.95) brightness(.82)}
+    .service-card:hover img{transform:scale(1.08);filter:saturate(1.12) brightness(.98)}
+    .service-overlay{background:linear-gradient(180deg,rgba(2,6,23,.1),rgba(2,6,23,.9))}
+
+    #buy-sell{background:#060a10!important}
+    .buy-card{position:relative;background:linear-gradient(145deg,#0b1220,#111c2d)!important;border:1px solid rgba(34,211,238,.2);overflow:hidden}
+    .buy-card:nth-child(2){border-color:rgba(168,85,247,.28)}
+
+    #book{background:radial-gradient(circle at 50% 10%,rgba(37,99,235,.15),transparent 35%),linear-gradient(180deg,#050912,#08101b)!important}
+    .info-card{position:relative;min-height:94px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#0f1b2c,#101a2b);border:1px solid rgba(34,211,238,.2);border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,.28);color:#e2e8f0;transition:.28s}
+    .info-card:hover{transform:translateY(-5px);border-color:rgba(34,211,238,.45);box-shadow:0 15px 40px rgba(0,0,0,.38),0 0 24px rgba(34,211,238,.12)}
+    .info-card span{color:#67e8f9!important}
+
+    #contact{background:radial-gradient(circle at 15% 20%,rgba(34,211,238,.12),transparent 30%),linear-gradient(145deg,#020617,#0b1625)!important;border-top:1px solid rgba(34,211,238,.22)}
+    #contact::before{content:"";display:block;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),var(--blue),var(--purple),transparent);box-shadow:0 0 15px rgba(34,211,238,.7)}
+
+    .sm-action-dock{position:fixed;right:18px;bottom:18px;z-index:9000;display:flex;flex-direction:column;gap:13px}
+    .sm-fab{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;text-decoration:none!important;color:#fff!important;background:#0b1828;border:1px solid rgba(34,211,238,.7);box-shadow:0 10px 30px rgba(0,0,0,.48),0 0 25px rgba(34,211,238,.18);position:relative;transition:.25s}
+    .sm-fab:hover{transform:translateY(-4px) scale(1.06)}
+    .sm-fab.whatsapp{border-color:rgba(34,197,94,.8);background:#052e16;box-shadow:0 10px 30px rgba(0,0,0,.48),0 0 25px rgba(34,197,94,.25)}
+    .sm-fab img{width:30px;height:30px;object-fit:contain}
+    .sm-fab.call svg{width:27px;height:27px;fill:#67e8f9;filter:drop-shadow(0 0 7px rgba(34,211,238,.65))}
+    .sm-fab-tip{position:absolute;right:68px;top:50%;transform:translateY(-50%) translateX(7px);opacity:0;pointer-events:none;white-space:nowrap;padding:7px 10px;border-radius:9px;background:rgba(3,7,14,.95);color:#e2e8f0;border:1px solid rgba(34,211,238,.25);font-size:12px;font-weight:700;transition:.22s}
+    .sm-fab:hover .sm-fab-tip{opacity:1;transform:translateY(-50%) translateX(0)}
+
+    #sm-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:10001;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple),var(--pink),var(--orange));box-shadow:0 0 10px var(--cyan),0 0 22px rgba(37,99,235,.7)}
+
+    /* Reviews */
+    #google-reviews{position:relative;isolation:isolate;background:radial-gradient(circle at 18% 25%,rgba(34,211,238,.14),transparent 27%),radial-gradient(circle at 82% 55%,rgba(168,85,247,.14),transparent 30%),linear-gradient(145deg,#040812,#081321 55%,#0b0715)!important}
+    #google-reviews::after{content:"";position:absolute;left:5%;right:5%;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),var(--purple),var(--pink),transparent);box-shadow:0 0 16px rgba(34,211,238,.55)}
+    .reviews-shell{width:min(1200px,100%);margin:auto}
+    .review-kicker{display:inline-block;margin-bottom:8px;font-size:12px;font-weight:900;letter-spacing:3px;color:#00f5ff;text-shadow:0 0 8px #00f5ff,0 0 20px #00f5ff}
+    .reviews-heading{text-align:center;margin-bottom:38px}
+    .reviews-heading p{max-width:700px;margin:10px auto 0;color:#cbd5e1;line-height:1.7}
+    .rating-summary{width:max-content;max-width:100%;margin:0 auto 38px;display:flex;align-items:center;gap:18px;padding:20px 28px;border-radius:22px;background:linear-gradient(135deg,rgba(255,0,80,.12),rgba(0,245,255,.1),rgba(145,70,255,.12));border:1px solid rgba(0,245,255,.55);box-shadow:0 0 20px rgba(0,245,255,.18),inset 0 0 25px rgba(255,0,100,.07)}
+    .google-mark{width:58px;height:58px;display:grid;place-items:center;border-radius:50%;font-size:32px;font-weight:900;color:#fff;background:conic-gradient(#4285f4,#34a853,#fbbc05,#ea4335,#4285f4);box-shadow:0 0 18px rgba(66,133,244,.7)}
+    .rating-number{font-size:32px;line-height:1;font-weight:900;color:#fff}
+    .rating-number span{font-size:15px;color:#9ca3af}
+    .rating-stars{color:#ffd700;font-size:22px;letter-spacing:3px;text-shadow:0 0 8px #ffd700,0 0 18px #ff9d00}
+    .rating-count{font-size:13px;color:#a8b3c5;margin-top:4px}
+    .reviews-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .review-card{--card-a:#22d3ee;--card-b:#3b82f6;position:relative;overflow:hidden;padding:23px;border-radius:20px;background:linear-gradient(145deg,#111827,#080c19);border:1px solid rgba(255,255,255,.12);box-shadow:0 0 18px color-mix(in srgb,var(--card-a) 20%,transparent),inset 0 0 20px color-mix(in srgb,var(--card-a) 5%,transparent);transition:.3s ease}
+    .review-card:nth-child(8n+2){--card-a:#a855f7;--card-b:#ec4899}
+    .review-card:nth-child(8n+3){--card-a:#22c55e;--card-b:#22d3ee}
+    .review-card:nth-child(8n+4){--card-a:#fb923c;--card-b:#facc15}
+    .review-card:nth-child(8n+5){--card-a:#ec4899;--card-b:#a855f7}
+    .review-card:nth-child(8n+6){--card-a:#22d3ee;--card-b:#3b82f6}
+    .review-card:nth-child(8n+7){--card-a:#facc15;--card-b:#fb923c}
+    .review-card:nth-child(8n){--card-a:#ef4444;--card-b:#ec4899}
+    .review-card:hover{transform:translateY(-7px) scale(1.01);box-shadow:0 0 32px color-mix(in srgb,var(--card-a) 38%,transparent),inset 0 0 22px color-mix(in srgb,var(--card-a) 7%,transparent)}
+    .review-top{display:flex;align-items:center;gap:12px}
+    .review-avatar{width:46px;height:46px;display:grid;place-items:center;border-radius:50%;color:#fff;font-size:19px;font-weight:900;background:linear-gradient(135deg,#ff006e,#7c3aed,#00e5ff);box-shadow:0 0 15px rgba(0,229,255,.4)}
+    .review-name{margin:0;color:#fff;font-size:15px;font-weight:800;overflow-wrap:anywhere}
+    .review-stars{margin-top:3px;color:#ffd700;letter-spacing:2px;text-shadow:0 0 6px #ffd700}
+    .review-date{margin-top:13px;color:#8b93a7;font-size:12px}
+    .review-text{margin-top:13px;color:#e5e7eb;font-size:14px;line-height:1.72}
+    .review-hidden{display:none}
+    .see-more-wrap{display:flex;justify-content:center;margin-top:34px}
+    .see-more-btn{border:1px solid #00e5ff;background:linear-gradient(135deg,rgba(0,229,255,.12),rgba(140,0,255,.12));color:#fff;padding:14px 26px;border-radius:999px;font-weight:900;cursor:pointer;box-shadow:0 0 15px rgba(0,229,255,.28);transition:.25s}
+    .see-more-btn:hover{transform:translateY(-3px);box-shadow:0 0 30px rgba(0,229,255,.65)}
+    .write-box{margin-top:50px;padding:28px;display:flex;align-items:center;gap:22px;border-radius:24px;background:linear-gradient(120deg,rgba(255,0,100,.12),rgba(0,230,255,.12),rgba(130,50,255,.12));border:1px solid rgba(255,255,255,.18);box-shadow:0 0 30px rgba(0,230,255,.16),inset 0 0 30px rgba(255,0,100,.05)}
+    .write-icon{width:62px;height:62px;flex:none;display:grid;place-items:center;border-radius:50%;color:#ffd700;font-size:28px;border:1px solid #ffd700;box-shadow:0 0 20px rgba(255,215,0,.5)}
+    .write-content{flex:1}
+    .write-content h3{margin:5px 0;color:#fff;font-size:24px;font-weight:900}
+    .write-content p{margin:0;color:#b8c0d0}
+    .write-stars{margin-top:7px;color:#ffd700;letter-spacing:4px}
+    .write-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:12px;text-decoration:none!important;color:#fff;font-weight:900;background:linear-gradient(135deg,#ff0055,#8b2cff,#00cfff);box-shadow:0 0 20px rgba(0,220,255,.35);transition:.25s;white-space:nowrap}
+    .write-btn:hover{transform:translateY(-3px);box-shadow:0 0 35px rgba(0,220,255,.7)}
+    .review-note{margin-top:17px;text-align:center;color:#7f8ba3;font-size:11px;line-height:1.6}
+    .review-note strong{color:#22c55e}
+
+    .reveal{opacity:0;transform:translateY(18px);transition:.7s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:900px){
+      .package-grid,.reviews-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .write-box{flex-direction:column;text-align:center}
+      .write-btn{width:100%}
+    }
+    @media(max-width:620px){
+      #hero{min-height:540px}
+      .package-grid,.reviews-grid{grid-template-columns:1fr}
+      #full-service-package{padding:23px 18px}
+      .rating-summary{padding:17px 20px}
+      .rating-number{font-size:27px}
+      .sm-action-dock{right:12px;bottom:12px}
+      .sm-fab{width:50px;height:50px}
+      .sm-fab-tip{display:none}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+      .reveal{opacity:1;transform:none}
+    }
   </style>
 </head>
-<body class="font-sans antialiased text-gray-800 bg-white scroll-smooth">
-  <!-- Header -->
-  <header class="bg-blue-700 text-white shadow sticky top-0 z-50">
+
+<body class="font-sans antialiased">
+
+  <header class="text-white sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
-      <!-- Logo + brand -->
       <div class="flex items-center gap-2">
-        <img id="logo" src="Logo.jpg" alt="Sumathe Mechanic Logo" class="h-10 w-10 rounded-full bg-white p-1 shadow-lg transition-transform" />
-        <span class="hidden sm:inline text-lg sm:text-2xl font-bold tracking-wide">Sumathe Mechanic</span>
+        <img id="logo" src="Logo.png" alt="Sumathi Mechanic Logo" class="h-10 w-10 rounded-full bg-white p-1 shadow-lg">
+        <span class="hidden sm:inline text-lg sm:text-2xl font-bold tracking-wide">Sumathi Mechanic</span>
       </div>
-      <!-- Desktop Nav -->
-      <nav class="hidden sm:flex space-x-8 text-sm font-medium items-center">
-        <!-- Location link -->
-        <a href="https://maps.app.goo.gl/qoGSuXtns1G4XjtM6" target="_blank" class="flex items-center gap-1 hover:text-gray-200">
-          <!-- map pin icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5s-3 1.343-3 3 1.343 3 3 3z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.341A8 8 0 004.572 15.34" /></svg>
-          <span>Location</span>
-        </a>
-        
-        <a href="#about" class="hover:text-gray-200">About</a>
-        <a href="#services" class="hover:text-gray-200">Services</a>
-        <a href="#buy-sell" class="hover:text-gray-200">Buy & Sell</a>
-        <a href="#book" class="hover:text-gray-200">Book Now</a>
-        <a href="#contact" class="hover:text-gray-200">Contact</a>
+
+      <nav class="hidden sm:flex space-x-7 text-sm font-medium items-center">
+        <a href="https://maps.app.goo.gl/b9xhWq5DvyZ68n6W7" target="_blank" rel="noopener">📍 Location</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#buy-sell">Buy & Sell</a>
+        <a href="#book">Book Now</a>
+        <a href="#google-reviews">Reviews</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <!-- Mobile menu btn -->
-      <button class="sm:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Toggle Menu">
+
+      <button class="sm:hidden text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Toggle menu">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
     </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="sm:hidden hidden bg-blue-800 text-white px-4 py-3 space-y-3">
+
+    <div id="mobile-menu" class="sm:hidden hidden bg-slate-950/95 backdrop-blur-md text-white px-4 py-3 space-y-3">
       <a href="#about" class="block">About</a>
       <a href="#services" class="block">Services</a>
       <a href="#buy-sell" class="block">Buy & Sell</a>
       <a href="#book" class="block">Book Now</a>
+      <a href="#google-reviews" class="block">Reviews</a>
       <a href="#contact" class="block">Contact</a>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="hero" class="relative">
-    <!-- 👉 Replace hero.jpg with your own local image -->
-    <div class="h-64 sm:h-[28rem] bg-cover bg-center" style="background-image:url('Main.jpg');"></div>
-    <div class="absolute inset-0 bg-blue-900/60 flex flex-col items-center justify-center text-center text-white px-4">
-      <h1 class="text-2xl sm:text-4xl font-extrabold mb-3 text-shadow">Fast, Reliable Bike Repairs, Buying & Selling</h1>
-      <p class="mb-6 text-sm sm:text-base text-shadow">We provide <strong>Complete Two-Wheeler Solutions</strong> — Service, Repair, Buy & Sell.<br>Pick-up & Delivery within 5–10 km (Visiting Charges: ₹199 from 6 AM–9 PM | ₹299 after 9 PM) • Open 24/7</p>
-      <a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20would%20like%20to%20get%20more%20details%20about%20bike%20services." target="_blank" class="inline-block bg-green-500 hover:bg-green-600 transition rounded-lg px-6 py-3 text-sm sm:text-base font-semibold shadow-lg">Contact Us in Whatsapp</a>
+  <section id="hero">
+    <div class="hero-bg">
+      <video autoplay muted loop playsinline poster="Logo.png">
+        <source src="main.mp4" type="video/mp4">
+      </video>
     </div>
-  </section>
-
-<!-- About -->
-<section id="about" class="max-w-7xl mx-auto px-6 py-12">
-  <h2 class="section-heading">About Us</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-    <!-- About Image -->
-    <div>
-      <img src="Logo.jpg" alt="Sumathe Mechanic Workshop" class="rounded-xl shadow-lg w-full max-w-xs mx-auto object-cover" />
-    </div>
-
-    <!-- About Text -->
-    <div>
-      <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
-        With over <strong>14 years of experience</strong>, <strong>Sumathe Mechanic</strong> has been trusted by thousands for reliable and affordable two-wheeler care.  
-We not only specialize in <strong>bike service and repair</strong> — from water wash to engine rebuild — but also offer trusted <strong>buying and selling of all kinds of two-wheelers</strong>.  
-Our <em>pick-up & delivery</em> service covers a 5–10 km radius around Perungudi, Chennai — helping you save time while we take care of your ride.
+    <div class="hero-overlay">
+      <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">Fast, Reliable Bike Repairs, Buying & Selling</h1>
+      <p class="mb-7 text-sm sm:text-base">
+        We provide <strong>Complete Two-Wheeler Solutions</strong> — Service, Repair, Buy & Sell.<br>
+        Pick-up & Delivery within 5–10 km (Visiting Charges ₹299) • Open 24/7
       </p>
-      <!-- Social Links -->
-      <div class="mt-4 flex gap-4 items-center">
-        <a href="https://wa.me/918667586994?text=Hi%20Praveen%20sir%2C%20I%20would%20like%20to%20get%20more%20details%20about%20bike%20services." target="_blank" class="inline-flex items-center gap-2 text-green-600 hover:text-green-800 text-sm">
-          <img src="WhatsApplogo.webp" alt="WhatsApp" class="w-5 h-5"> WhatsApp
-        </a>
-        <a href="https://youtube.com/@chennaimechanictamil4438?si=ayDa1kRiRfdXskHP" target="_blank" class="inline-flex items-center gap-2 text-red-600 hover:text-red-800 text-sm">
-          <img src="yt.webp" alt="YouTube" class="w-5 h-5"> YouTube
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Glassmorphism Service Grid -->
-<div class="mt-12 max-w-5xl mx-auto p-8 rounded-xl bg-white/30 backdrop-blur-md shadow-2xl border border-gray-200">
-  <h3 class="text-2xl font-extrabold text-blue-799 mb-6 text-center">
-    Bike Full Service – What's Included (₹799)
-  </h3>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-gray-800 text-sm font-medium">
-    <div class="bg-white/80 p-4 rounded-lg shadow-md hover:scale-105 transition"><span class="text-blue-600">✔</span> Carburettor clean</div>
-    <div class="bg-white/80 p-4 rounded-lg shadow-md hover:scale-105 transition"><span class="text-blue-600">✔</span> Front & Back brake shoe clean</div>
-    <div class="bg-white/80 p-4 rounded-lg shadow-md hover:scale-105 transition"><span class="text-blue-600">✔</span> Oil lubrication</div>
-    <div class="bg-white/80 p-4 rounded-lg shadow-md hover:scale-105 transition"><span class="text-blue-600">✔</span> Air filter cleaning</div>
-    <div class="bg-white/80 p-4 rounded-lg shadow-md hover:scale-105 transition"><span class="text-blue-600">✔</span> Chain adjustment</div>
-    <div class="bg-white/80 p-4 rounded-lg shadow-md hover:scale-105 transition"><span class="text-blue-600">✔</span> Spark plug clean</div>
-    <div class="bg-white/80 p-4 rounded-lg shadow-md hover:scale-105 transition"><span class="text-blue-600">✔</span> Complete wiring check</div>
-    <div class="bg-white/80 p-4 rounded-lg shadow-md hover:scale-105 transition"><span class="text-blue-600">✔</span> Clutch adjustment (grease pack)</div>
-    <div class="bg-white/80 p-4 rounded-lg shadow-md hover:scale-105 transition"><span class="text-blue-600">✔</span> Brake adjustment</div>
-    <div class="bg-white/80 p-4 rounded-lg shadow-md hover:scale-105 transition"><span class="text-blue-600">✔</span> Extra spare replacement (If needed)</div>
-  </div>
-  <div class="mt-6 text-center text-sm text-gray-800 border-t pt-4">
-    <p class="mb-1 italic">Need everything done at once?</p>
-    <p class="font-bold text-lg text-blue-800">Complete Care Package – ₹1,449</p>
-    <p class="text-gray-600 text-xs">(Includes Full Service + Engine Oil Change ₹450 + Water Wash ₹199)</p>
-    <p class="text-gray-600 text-xs">
-  Pick-up & Delivery within 5–10 km (₹199 from 6 AM–9 PM | ₹299 after 9 PM)</p>
-  </div>
-</div>
-
-
-
-  <!-- Services -->
-  <section id="services" class="bg-gray-100 py-12">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="section-heading">Our Services</h2>
-      <!-- Service Grid -->
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-
-        <!-- Bike Full Service -->
-<a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Bike%20Full%20Service." target="_blank" class="group relative rounded-lg shadow overflow-hidden block">
-  <img src="full ser.jpg" alt="Bike Full Service" class="w-full h-48 object-cover transition-transform group-hover:scale-105 duration-300" />
-  <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-white px-2 text-lg font-semibold text-center leading-snug">
-    Full Service<br>(₹799)
-  </div>
-</a>
-
-<!-- Engine Oil Change -->
-<a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Engine%20Oil%20Change." target="_blank" class="group relative rounded-lg shadow overflow-hidden block">
-  <img src="oil change.jpg" alt="Engine Oil Change" class="w-full h-48 object-cover transition-transform group-hover:scale-105 duration-300" />
-  <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white px-2 text-lg font-semibold text-center leading-snug">
-    Engine Oil Change<br>(₹450)
-  </div>
-</a>
-
-<!-- Water Wash -->
-<a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Water%20Wash." target="_blank" class="group relative rounded-lg shadow overflow-hidden block">
-  <img src="bike water wash.jpg" alt="Water Wash" class="w-full h-48 object-cover transition-transform group-hover:scale-105 duration-300" />
-  <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white px-2 text-lg font-semibold text-center leading-snug">
-    Water Wash<br>(₹199)
-  </div>
-</a>
-
-<!-- Painting -->
-<a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Painting." target="_blank" class="group relative rounded-lg shadow overflow-hidden block">
-  <img src="paint.jpg" alt="Painting" class="w-full h-48 object-cover transition-transform group-hover:scale-105 duration-300" />
-  <div class="absolute inset-0 bg-black/50 flex items-center justify-center text-white px-2 text-lg font-semibold text-center">Painting(Design & Price) <br> Based on Customer Query</div>
-</a>
-
-<!-- Engine Work -->
-<a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Engine%20Work." target="_blank" class="group relative rounded-lg shadow overflow-hidden block">
-  <img src="Engine works.jpg" alt="Engine Work" class="w-full h-48 object-cover transition-transform group-hover:scale-105 duration-300" />
-  <div class="absolute inset-0 bg-black/50 flex items-center justify-center text-white px-2 text-lg font-semibold text-center">Engine Work</div>
-</a>
-
-<!-- Battery change -->
-<a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Battery%20Change." target="_blank" class="group relative rounded-lg shadow overflow-hidden block">
-  <img src="batterychange.jpg" alt="batterychange" class="w-full h-48 object-cover transition-transform group-hover:scale-105 duration-300" />
-  <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white px-2 text-lg font-semibold text-center leading-snug">
-    Battery Change
-  </div>
-</a>
-
-<!-- Bike Chain Service -->
-<a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Bike%20Chain%20Services." target="_blank" class="group relative rounded-lg shadow overflow-hidden block">
-  <img src="bike chain.jpg" alt="Bike Chain services" class="w-full h-48 object-cover transition-transform group-hover:scale-105 duration-300" />
-  <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white px-2 text-lg font-semibold text-center leading-snug">
-    Chain Services
-  </div>
-</a>
-
-<!-- Bike Brake shoe -->
-<a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Bike%20Brake%20Shoe%20and%20Brake%20Related%20Services." target="_blank" class="group relative rounded-lg shadow overflow-hidden block">
-  <img src="bike break shoe.jpg" alt="bike brake shoe" class="w-full h-48 object-cover transition-transform group-hover:scale-105 duration-300" />
-  <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white px-2 text-lg font-semibold text-center leading-snug">
-    Brake Related Services
-  </div>
-</a>
-
-    </div>
-  </section>
-
-<!-- Buy & Sell Section -->
-<section id="buy-sell" class="bg-white py-12">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="section-heading">Buy & Sell Bikes</h2>
-    <p class="text-center text-gray-700 mb-10 text-sm sm:text-base">
-      Looking to <strong>buy a used bike</strong> or <strong>sell your old one</strong>?  
-      We make it simple, fast, and transparent — verified bikes, fair pricing & smooth transfers.
-    </p>
-
-    <!-- Grid -->
-    <div class="grid gap-8 sm:grid-cols-2">
-      
-      <!-- Sell a Bike -->
-      <div class="group bg-blue-50 rounded-2xl shadow-md hover:shadow-xl transition p-6 text-center">
-        <img src="bike buy.jpg" alt="Sell a Bike" class="w-full h-48 object-cover rounded-xl mb-4 transition-transform group-hover:scale-105">
-        <h3 class="text-xl font-bold text-blue-800 mb-2">Sell Your Bike</h3>
-        <p class="text-gray-700 text-sm mb-4">Want to sell your bike? We’ll help you get the best price quickly and safely.</br><b>(All Kind Of Two Wheeler Accept Here)</b></p>
-        <a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20want%20to%20sell%20my%20bike.%20Please%20guide%20me%20with%20the%20details." 
-           target="_blank"
-           class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium shadow-lg">
-          Contact to Sell
-        </a>
-      </div>
-
-      
-      <!-- Buy a Bike -->
-      <div class="group bg-blue-50 rounded-2xl shadow-md hover:shadow-xl transition p-6 text-center">
-        <img src="sell bike.jpg" alt="Buy a Bike" class="w-full h-48 object-cover rounded-xl mb-4 transition-transform group-hover:scale-105">
-        <h3 class="text-xl font-bold text-blue-800 mb-2">Buy a Bike</h3>
-        <p class="text-gray-700 text-sm mb-4">Choose from well-maintained bikes with service history and genuine parts.</br><b>(All Kind Of Two Wheeler Available Here)</b></p>
-        <a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20am%20interested%20in%20buying%20a%20bike.%20Please%20share%20the%20available%20options." 
-           target="_blank"
-           class="inline-block bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-lg font-medium shadow-lg">
-          Contact to Buy
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section id="book" class="max-w-7xl mx-auto px-6 py-16 text-center">
-  <h2 class="section-heading">Book Your Trusted Bike Service Now</h2>
-
-  <p class="text-gray-700 mb-8">
-    14 Years of Experience | Quality Two-Wheeler Service | On-Time Delivery<br>
-    Tap below to schedule your appointment or ask your queries directly on WhatsApp.
-  </p>
-
-
- <!-- Booking Highlights -->
-<div class="grid gap-6 sm:grid-cols-2 md:grid-cols-4 mb-8">
-  <div class="card-glass hover:scale-105 transition p-4 text-sm font-medium text-gray-800 shadow-md rounded-xl">
-    🛠 Services <span class="font-semibold text-blue-700">Available 24/7</span>
-  </div>
-  <div class="card-glass hover:scale-105 transition p-4 text-sm font-medium text-gray-800 shadow-md rounded-xl">📦 Pickup & Delivery
-<span class="block text-blue-700">
-Within 10 km<br>
-₹199 (6 AM–9 PM)<br>
-₹299 (After 9 PM)
-</span>
-  </div>
-  <div class="card-glass hover:scale-105 transition p-4 text-sm font-medium text-gray-800 shadow-md rounded-xl">
-    💳 Cash / UPI <span class="text-blue-700">Payments Accepted</span>
-  </div>
-  <div class="card-glass hover:scale-105 transition p-4 text-sm font-medium text-gray-800 shadow-md rounded-xl">
-    🛠️ Trusted by <span class="text-blue-700">1000+ Happy Bike Owners</span>
-  </div>
-  <div class="card-glass hover:scale-105 transition p-4 text-sm font-medium text-gray-800 shadow-md rounded-xl">
-    📆 Flexible Booking — <span class="text-blue-700">Call or WhatsApp Anytime</span>
-  </div>
-  <div class="card-glass hover:scale-105 transition p-4 text-sm font-medium text-gray-800 shadow-md rounded-xl">
-    🧰 Multi-Brand Support: <span class="text-blue-700">Honda, TVS, Hero, Yamaha & More</span>
-  </div>
-  <div class="card-glass hover:scale-105 transition p-4 text-sm font-medium text-gray-800 shadow-md rounded-xl">
-    🛡️ Genuine Parts <span class="text-blue-700">Quality Guaranteed</span>
-  </div>
-<div class="card-glass hover:scale-105 transition p-4 text-sm font-medium text-gray-800 shadow-md rounded-xl">
-  🏍️ All Kind Of Two Wheelers: <span class="text-blue-700">Buying & Selling Done Here</span>
-</div>
-</div>
-
-
-
-  <!-- CTA Button -->
-  <a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20would%20like%20to%20get%20more%20details%20about%20bike%20services." 
-     target="_blank" 
-     class="inline-block bg-green-500 hover:bg-green-600 transition rounded-lg px-6 py-3 text-sm sm:text-base font-semibold shadow-lg">
-    Book Service on WhatsApp
-  </a>
-</section>
-
-
-
-<!-- Contact -->
-<section id="contact" class="bg-blue-700 text-white">
-
-  <!-- Top Centered Contact Info Heading -->
-  <div class="text-center pt-10 pb-4">
-    <h2 class="section-heading text-white">Contact Info</h2>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-6 pb-14 flex flex-col sm:flex-row sm:justify-between gap-6">
-
-    <!-- Left: Address, Shop Name, Experience, Phone -->
-    <div class="space-y-4 text-sm sm:text-base">
-      <!-- Shop Name & Experience -->
-      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-black-300 drop-shadow-md">
-    Sumathe Mechanics
-</h2>
-      <p>14 Years of Professional Experience</p>
-
-      <!-- Address -->
-      <p class="flex items-center gap-2">
-        <span class="text-lg">📍</span>
-        29E, 7th Street, Anjugam Ammayar Street, Perungudi, Chennai - 600 096
-      </p>
-
-      <!-- Phone Numbers -->
-      <p class="flex items-center gap-2">
-        <span class="text-green-400 font-semibold text-lg">📞</span>
-        <a href="tel:+918667586994" class="hover:underline hover:text-gray-300 transition">+91 86675 86994</a>
-      </p>
-      <p class="flex items-center gap-2">
-        <span class="text-green-400 font-semibold text-lg">📞</span>
-        <a href="tel:+916383555958" class="hover:underline hover:text-gray-300 transition">+91 63835 55958</a>
-      </p>
-    </div>
-
-    <!-- Right: Location Link -->
-    <div class="flex flex-col items-start">
-      <a href="https://maps.app.goo.gl/qoGSuXtns1G4XjtM6" target="_blank" class="flex items-center gap-2 hover:text-gray-200">
-        <span class="text-red-400 text-lg">📍</span>
-        <span>Location on Map</span>
+      <a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20would%20like%20to%20get%20more%20details%20about%20bike%20services." target="_blank" rel="noopener"
+         class="inline-block bg-green-500 hover:bg-green-600 rounded-lg px-6 py-3 text-sm sm:text-base font-semibold shadow-lg">
+        Contact Us on WhatsApp
       </a>
     </div>
-  </div>
-</section>
-<!-- Your other content -->
+  </section>
 
-<script>
-  document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.add('hidden');
+  <section id="about" class="px-6 py-14">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="section-heading">About Us</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="reveal">
+          <img src="Logo.png" alt="Sumathe Mechanic Workshop" class="rounded-2xl shadow-lg w-full max-w-xs mx-auto object-cover">
+        </div>
+
+        <div class="reveal">
+          <p class="leading-relaxed text-sm sm:text-base">
+            With over <strong>15 years of experience</strong>, <strong>Sumathi Mechanic</strong> has been trusted by thousands for reliable and affordable two-wheeler care.
+            We specialize in <strong>bike service and repair</strong> — from water wash to engine rebuild — and also offer trusted <strong>buying and selling of two-wheelers</strong>.
+            Our <em>pick-up & delivery</em> service covers a 5–10 km radius around Perungudi, Chennai.
+          </p>
+
+          <div class="mt-5 flex flex-wrap gap-4 items-center">
+            <a href="https://wa.me/918667586994?text=Hi%20Praveen%20sir%2C%20I%20would%20like%20to%20get%20more%20details%20about%20bike%20services." target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-green-400 font-semibold">
+              <img src="WhatsApplogo.webp" alt="WhatsApp" class="w-5 h-5"> WhatsApp
+            </a>
+            <a href="https://youtube.com/@chennaimechanictamil4438?si=ayDa1kRiRfdXskHP" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-red-400 font-semibold">
+              <img src="yt.webp" alt="YouTube" class="w-5 h-5"> YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div id="full-service-package" class="neon-panel max-w-5xl mx-auto mt-14 reveal">
+        <h3>Bike Full Service – What's Included (₹799)</h3>
+
+        <div class="package-grid text-sm font-medium">
+          <div class="package-item"><span>✔</span> Carburettor clean</div>
+          <div class="package-item"><span>✔</span> Front & Back brake shoe clean</div>
+          <div class="package-item"><span>✔</span> Oil lubrication</div>
+          <div class="package-item"><span>✔</span> Air filter cleaning</div>
+          <div class="package-item"><span>✔</span> Chain adjustment</div>
+          <div class="package-item"><span>✔</span> Spark plug clean</div>
+          <div class="package-item"><span>✔</span> Complete wiring check</div>
+          <div class="package-item"><span>✔</span> Clutch adjustment (grease pack)</div>
+          <div class="package-item"><span>✔</span> Brake adjustment</div>
+          <div class="package-item"><span>✔</span> Extra spare replacement (if needed)</div>
+        </div>
+
+        <div class="package-summary">
+          <p class="need">Need everything done at once?</p>
+          <p class="price">Complete Care Package – ₹1,450</p>
+          <p class="small">(Includes Full Service + Engine Oil Change ₹450 + Water Wash ₹200)</p>
+          <p class="small">Pick-up & Delivery within 5–10 km (Visiting Charges ₹299)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="section-heading">Our Services</h2>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <a class="service-card rounded-xl" style="--card-a:#22d3ee;--card-b:#3b82f6" href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Bike%20Full%20Service." target="_blank" rel="noopener">
+          <img src="Full service.png" alt="Bike Full Service" class="w-full h-48 object-cover">
+          <div class="service-overlay absolute inset-0 flex items-center justify-center text-white px-3 text-lg font-bold text-center">Full Service<br>(₹799)</div>
+        </a>
+
+        <a class="service-card rounded-xl" style="--card-a:#a855f7;--card-b:#ec4899" href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Engine%20Oil%20Change." target="_blank" rel="noopener">
+          <img src="oil change.jpg" alt="Engine Oil Change" class="w-full h-48 object-cover">
+          <div class="service-overlay absolute inset-0 flex items-center justify-center text-white px-3 text-lg font-bold text-center">Engine Oil Change<br>(₹450)</div>
+        </a>
+
+        <a class="service-card rounded-xl" style="--card-a:#fb923c;--card-b:#facc15" href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Water%20Wash." target="_blank" rel="noopener">
+          <img src="water wash.png" alt="Water Wash" class="w-full h-48 object-cover">
+          <div class="service-overlay absolute inset-0 flex items-center justify-center text-white px-3 text-lg font-bold text-center">Water Wash<br>(₹200)</div>
+        </a>
+
+        <a class="service-card rounded-xl" style="--card-a:#ec4899;--card-b:#a855f7" href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Painting." target="_blank" rel="noopener">
+          <img src="paint.png" alt="Painting" class="w-full h-48 object-cover">
+          <div class="service-overlay absolute inset-0 flex items-center justify-center text-white px-3 text-lg font-bold text-center">Painting (Design & Price)<br>Based on Customer Query</div>
+        </a>
+
+        <a class="service-card rounded-xl" style="--card-a:#22c55e;--card-b:#22d3ee" href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Engine%20Work." target="_blank" rel="noopener">
+          <img src="Engine work.png" alt="Engine Work" class="w-full h-48 object-cover">
+          <div class="service-overlay absolute inset-0 flex items-center justify-center text-white px-3 text-lg font-bold">Engine Work</div>
+        </a>
+
+        <a class="service-card rounded-xl" style="--card-a:#facc15;--card-b:#fb923c" href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Battery%20Change." target="_blank" rel="noopener">
+          <img src="Battery change.png" alt="Battery Change" class="w-full h-48 object-cover">
+          <div class="service-overlay absolute inset-0 flex items-center justify-center text-white px-3 text-lg font-bold">Battery Change</div>
+        </a>
+
+        <a class="service-card rounded-xl" style="--card-a:#22d3ee;--card-b:#a855f7" href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Bike%20Chain%20Services." target="_blank" rel="noopener">
+          <img src="Chain service.png" alt="Bike Chain Services" class="w-full h-48 object-cover">
+          <div class="service-overlay absolute inset-0 flex items-center justify-center text-white px-3 text-lg font-bold">Chain Services</div>
+        </a>
+
+        <a class="service-card rounded-xl" style="--card-a:#ef4444;--card-b:#ec4899" href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20need%20to%20know%20about%20Brake%20Related%20Services." target="_blank" rel="noopener">
+          <img src="break.png" alt="Bike Brake Services" class="w-full h-48 object-cover">
+          <div class="service-overlay absolute inset-0 flex items-center justify-center text-white px-3 text-lg font-bold text-center">Brake Related Services</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="buy-sell" class="py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="section-heading">Buy & Sell Bikes</h2>
+      <p class="text-center text-gray-300 mb-10 text-sm sm:text-base">
+        Looking to <strong>buy a used bike</strong> or <strong>sell your old one</strong>?
+        We make it simple, fast, and transparent — verified bikes, fair pricing & smooth transfers.
+      </p>
+
+      <div class="grid gap-8 sm:grid-cols-2">
+        <div class="buy-card rounded-2xl p-6 text-center reveal">
+          <img src="bike buy.jpg" alt="Sell a Bike" class="w-full h-48 object-cover rounded-xl mb-4">
+          <h3 class="text-xl font-bold text-white mb-2">Sell Your Bike</h3>
+          <p class="text-gray-300 text-sm mb-4">Want to sell your bike? We’ll help you get the best price quickly and safely.<br><b>(All Kind Of Two Wheeler Accept Here)</b></p>
+          <a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20want%20to%20sell%20my%20bike.%20Please%20guide%20me%20with%20the%20details." target="_blank" rel="noopener" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium">Contact to Sell</a>
+        </div>
+
+        <div class="buy-card rounded-2xl p-6 text-center reveal">
+          <img src="sell bike.jpg" alt="Buy a Bike" class="w-full h-48 object-cover rounded-xl mb-4">
+          <h3 class="text-xl font-bold text-white mb-2">Buy a Bike</h3>
+          <p class="text-gray-300 text-sm mb-4">Choose from well-maintained bikes with service history and genuine parts.<br><b>(All Kind Of Two Wheeler Available Here)</b></p>
+          <a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20am%20interested%20in%20buying%20a%20bike.%20Please%20share%20the%20available%20options." target="_blank" rel="noopener" class="inline-block bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-lg font-medium">Contact to Buy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="book" class="py-16 text-center">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="section-heading">Book Your Trusted Bike Service Now</h2>
+      <p class="text-gray-300 mb-8">
+        15 Years of Experience | Quality Two-Wheeler Service | On-Time Delivery<br>
+        Tap below to schedule your appointment or ask your queries directly on WhatsApp.
+      </p>
+
+      <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-4 mb-8">
+        <div class="info-card reveal">🛠 Services <span class="font-semibold ml-1">Available 24/7</span></div>
+        <div class="info-card reveal">📦 Pickup & Delivery <span class="block ml-1">within 10 km</span></div>
+        <div class="info-card reveal">💳 Cash / UPI <span class="ml-1">Payments Accepted</span></div>
+        <div class="info-card reveal">🛠️ Trusted by <span class="ml-1">5000+ Happy Bike Owners</span></div>
+        <div class="info-card reveal">📆 Flexible Booking — <span class="ml-1">Call or WhatsApp Anytime</span></div>
+        <div class="info-card reveal">🧰 Multi-Brand Support: <span class="ml-1">Honda, TVS, Hero, Yamaha & More</span></div>
+        <div class="info-card reveal">🛡️ Genuine Parts <span class="ml-1">Quality Guaranteed</span></div>
+        <div class="info-card reveal">🏍️ All Kind Of Two Wheelers: <span class="ml-1">Buying & Selling Done Here</span></div>
+      </div>
+
+      <a href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20would%20like%20to%20get%20more%20details%20about%20bike%20services." target="_blank" rel="noopener"
+         class="inline-block bg-green-500 hover:bg-green-600 rounded-lg px-6 py-3 text-sm sm:text-base font-semibold shadow-lg">
+        Book Service on WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <section id="google-reviews" class="py-20 px-5">
+    <div class="reviews-shell">
+
+      <div class="reviews-heading">
+        <span class="review-kicker">REAL CUSTOMER FEEDBACK</span>
+        <h2 class="section-heading mt-2">Google Reviews</h2>
+        <p>Trusted by customers for bike service, roadside assistance, pickup & delivery and emergency repairs.</p>
+      </div>
+
+      <div class="rating-summary">
+        <div class="google-mark">G</div>
+        <div>
+          <div class="rating-number">4.9 <span>/ 5</span></div>
+          <div class="rating-stars">★★★★★</div>
+          <div class="rating-count">91 Google Reviews • 55 reviews displayed below</div>
+        </div>
+      </div>
+
+      <div id="reviewsGrid" class="reviews-grid"></div>
+
+      <div class="see-more-wrap">
+        <button id="seeMoreReviews" class="see-more-btn" type="button">
+          View All 55 Reviews <span id="seeMoreArrow">↓</span>
+        </button>
+      </div>
+
+      <div class="write-box">
+        <div class="write-icon">★</div>
+        <div class="write-content">
+          <span class="review-kicker">HAD YOUR BIKE SERVICED?</span>
+          <h3>Share Your Experience</h3>
+          <p>Your feedback helps other riders find a trusted mechanic.</p>
+          <div class="write-stars">★★★★★</div>
+        </div>
+
+        <a class="write-btn"
+           href="https://search.google.com/local/writereview?placeid=ChIJZ-0bzOddUjoRpoA_L3oVEwo&source=g.page.m.ia._&laa=nmx-review-solicitation-ia2"
+           target="_blank" rel="noopener">
+          ✍️ Write a Review on Google
+        </a>
+      </div>
+
+      <div class="review-note">
+        <strong>✓</strong>
+        These displayed customer comments are taken from the supplied Google review source. New reviews are submitted directly through Google using the button above.
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="text-white">
+    <div class="text-center pt-10 pb-5">
+      <h2 class="section-heading">Contact Info</h2>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 pb-14 flex flex-col sm:flex-row sm:justify-between gap-8">
+      <div class="space-y-4 text-sm sm:text-base">
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white">Sumathi Mechanics</h2>
+        <p>15 Years of Professional Experience</p>
+
+        <p class="flex items-start gap-2">
+          <span class="text-lg">📍</span>
+          <span>31E, Thiruvallur St, Thiruvallur Nagar, Perungudi, Chennai - 600096 <b>(Opposite S3 Elite Saloon)</b></span>
+        </p>
+
+        <p class="flex items-center gap-2">
+          <span class="text-green-400 text-lg">📞</span>
+          <a href="tel:+918667586994" class="hover:text-cyan-300 transition">+91 86675 86994</a>
+        </p>
+        <p class="flex items-center gap-2">
+          <span class="text-green-400 text-lg">📞</span>
+          <a href="tel:+916383555958" class="hover:text-cyan-300 transition">+91 63835 55958</a>
+        </p>
+      </div>
+
+      <div class="flex flex-col items-start">
+        <a href="https://maps.app.goo.gl/b9xhWq5DvyZ68n6W7" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-cyan-300 transition">
+          <span class="text-red-400 text-lg">📍</span>
+          <span>Location on Map</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div id="sm-progress" aria-hidden="true"></div>
+
+  <div class="sm-action-dock" aria-label="Quick actions">
+    <a class="sm-fab whatsapp"
+       href="https://wa.me/918667586994?text=Hi%20Praveen%20bro%2C%20I%20would%20like%20to%20book%20a%20bike%20service."
+       target="_blank" rel="noopener" aria-label="WhatsApp">
+      <img src="WhatsApplogo.webp" alt="WhatsApp">
+      <span class="sm-fab-tip">WhatsApp</span>
+    </a>
+
+    <a class="sm-fab call" href="tel:+918667586994" aria-label="Call">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6.6 10.8c1.5 2.9 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2.9.3 1.8.5 2.7.5.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.3 21 3 12.7 3 2.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 .9.2 1.8.5 2.7.1.4 0 .9-.2 1.2L6.6 10.8z"/>
+      </svg>
+      <span class="sm-fab-tip">Call Now</span>
+    </a>
+  </div>
+
+  <script>
+    const reviews = [{"name": "Logidharan I", "date": "6 months ago", "text": "Best bike mechanic near Perungudi! I gave my Ntorq for full service, and the work was done just like an authorized service centre. I was surprised to know they also offer 24x7 service with pickup and delivery within 10 km. Highly recommended!"}, {"name": "Y NOT KK", "date": "2 months ago", "text": "Excellent service: Pradeep fixed my kulfi bike cart after many days of my struggle. Other mechanics refused the job due to the vehicle's size, but he took it on without hesitation. He started working immediately, stayed focused, and got it running perfect. The billing was prompt, clear, and very reasonable. Highly recommended!"}, {"name": "Vamsidhar Yeruva", "date": "8 months ago", "text": "Very fast servicing and charging only for what they done. It is far far better than authorised service centers. Given Yamaha MT-15 for servicing, it was completed fast and shown the old parts that had issues. Very great service."}, {"name": "Candy", "date": "4 months ago", "text": "Had a great bike service experience around 11 PM on Sunday. Even at midnight, the service was quick, professional, and reliable. Special thanks to Praveen for the excellent support and friendly handling. Highly recommended for emergency or late-night bike service around OMR and Tharamani."}, {"name": "Prasanna Kumar", "date": "5 months ago", "text": "Quality service by a really knowledgeable person. Service by Mr. Praveen is much better than the service from authorized dealers. Can really feel the smoothness of the vehicle while driving after the service. Pure value for money."}, {"name": "Padmaprasath E", "date": "8 months ago", "text": "Bike service was good. I am new to Chennai and literally had no idea on the Yamaha showroom and service centre. My friend suggested this workshop. The work is perfect and he checked everything, sent photos of the parts which needed maintenance and shared all the details before handling. I would recommend to go here for service."}, {"name": "jagadeesh i", "date": "8 months ago", "text": "Around 10.30 pm my bike faced starting issue. I got Praveen number via Google. He immediately came and helped, identified the issue and resolved it. Trustable person. If you face any bike issues near Taramani you can call him without hesitation."}, {"name": "Prakash J", "date": "7 months ago", "text": "Had a great experience with this mechanic. He came out promptly, diagnosed the problem correctly right away, and explained everything clearly without trying to upsell or confuse me. Very professional, knowledgeable, and honest. Pricing was fair, and the repair was done efficiently."}, {"name": "Jayesh Kumar", "date": "2 months ago", "text": "Called them at 10:30 pm for bike starting issue, immediately responded, came to the site, identified and fixed the issue, cleaned the carburetor within 1 hour, for nominal charge. Thanks for the help."}, {"name": "Ramesh Arvind", "date": "a year ago", "text": "Kudos to the mechanic for the dedication and commitment—working tirelessly from midnight till 4:30 AM to fix the product. The effort and attention to detail are truly commendable. Excellent job!"}, {"name": "eshwar Saravanan", "date": "5 months ago", "text": "Praveen sir gave a good service. If we share the live location he will visit our place and solve our two-wheeler issues."}, {"name": "Harikumar Umapathi", "date": "10 months ago", "text": "Yesterday at 10 PM, my motorbike broke down due to a starting issue. I called Sumathi Mechanic Shop, and within 20 minutes Mr. Praveen arrived. He quickly diagnosed and fixed the problem. Despite the late hour, he was polite, professional, and charged a very reasonable fee."}, {"name": "Sri Ram", "date": "8 months ago", "text": "Timely needed help. He came to the place where vehicle stopped and repaired my bike at an untimely hour after I called him."}, {"name": "sivaraj N", "date": "9 months ago", "text": "I visited Sumathi Mechanic Shop on 4th December 2025 at 10:15 PM to diagnose a self-start issue with my motorbike. Within 30 minutes, Praveen Mani quickly identified and fixed the problem. Despite the late hour, he was polite, professional, and charged a very reasonable fee. Highly recommended!"}, {"name": "SIRANJEEVI K", "date": "10 months ago", "text": "Very talented and informative person. My bike had a vibration issue and I tried many workshops. They only wanted money and explained it wrongly, but Sumathi workshop resolved it with reasonable cost. Thank you very much."}, {"name": "Govindarajan Sundararajan", "date": "5 months ago", "text": "Very responsive. My clutch cable broke in the middle of a signal. Just one call and they came with the required spare and fixed it. Very professional."}, {"name": "RICHI", "date": "a year ago", "text": "Best two-wheeler service in Perungudi! I gave my bike for full service and the results were amazing. They cleaned everything, changed oil, fixed the brakes, and gave proper updates on WhatsApp. The pickup and drop made it so easy. Highly recommended if you're searching for bike service near Perungudi."}, {"name": "vishva prakash.k", "date": "a year ago", "text": "I recently visited this mechanic shop, and I must say they did a superb job. The service was quick, professional, and reasonably priced. Praveen was friendly, explained everything clearly, and made sure my vehicle was in perfect condition before handing it back. I really appreciate their honesty and attention to detail."}, {"name": "gowthaman ks", "date": "9 months ago", "text": "I called the mechanic for my bike starting problem in late evening on Sunday. Without hesitation he came and solved my bike issue even during cyclone raining time. He is very approachable and economic. So I am very satisfied."}, {"name": "Manoj Kumar", "date": "7 months ago", "text": "Called after checking reviews, the mechanic came home and fixed the issue. Good work."}, {"name": "Arvind Raj", "date": "7 months ago", "text": "Excellent bike service. The work was done neatly and with true passion."}, {"name": "Kathiravan Ilamparithi", "date": "11 months ago", "text": "Called for TVS Wego Service and received immediate response over phone and the issue was fixed directly at home itself. Thanks much for the Quick and Quality Service."}, {"name": "Mohan Kumar", "date": "8 months ago", "text": "My bike broke down on my way back home around 11:30 PM, and the mechanic promptly arrived at the location, efficiently resolved the issue, and charged a very reasonable fee."}, {"name": "Surya bhuvana", "date": "a year ago", "text": "Hi, I visited Sumathi Mechanic Shop near Perungudi. I gave my Duke 390 for full service and it was done very well. I heard he had pickup and delivery option also and he provided 24x7 service."}, {"name": "Mohith N K", "date": "8 months ago", "text": "It was good service. They came to me and helped getting it towed to the shop and did a great job on the bike."}, {"name": "M.A.Ritchagansivet Bcab", "date": "a year ago", "text": "Genuine mechanic near Velachery. Took my Ntorq to Sumathi Mechanic Shop for engine work and clutch adjustment. They gave a clear breakdown of the work and pricing. Very professional and friendly. Will definitely refer if someone needs doorstep bike service Velachery side."}, {"name": "Selva S", "date": "a year ago", "text": "I called mechanic based on the Google review. I got stuck on the road at 8.30 pm. He immediately reached me within 15 to 20 mins after my call. Identified and fixed the issue. Great service."}, {"name": "Vinofa 0494", "date": "a year ago", "text": "My bike chain stuck in between sprocket and not able to move it around 11.30 PM. He came within short time and fixed the issue. Thanks a lot."}, {"name": "Lingesh Waran", "date": "a year ago", "text": "Good service and affordable services. He provided good services and all bike works. The shop also provides pickup and delivery service. Must try and visit for bike services and works."}, {"name": "Nethaji Nethaji", "date": "9 months ago", "text": "My bike was stuck due to engine cease at 9:40 PM. He came and made my bike run and I reached home safely. Thank you bro."}, {"name": "Zhini Music", "date": "5 months ago", "text": "Simply I am say very good service 👍"}, {"name": "Ragul kohli", "date": "a year ago", "text": "I got stuck on a main road and contacted him. He came fast to the spot and fixed my bike. Had a great experience."}, {"name": "Rona Bala", "date": "a year ago", "text": "Yesterday night my bike gave a problem. I called Praveen, he came and picked it up and provided good service for my Activa. He delivered on time. I suggest you all."}, {"name": "Sanjay Annamalai", "date": "a year ago", "text": "He gave a good service and was friendly. He did all the work near Perungudi, Madipakkam and Velachery areas. I suggest you guys, the best mechanic I ever seen."}, {"name": "Rajadurai Karuna", "date": "a year ago", "text": "Excellent service and affordable cost. They explained everything clearly and didn't try to upsell me on unnecessary repairs."}, {"name": "Super Tech !", "date": "a year ago", "text": "Nice service. He helped even at 4 AM at night and saved our bike."}, {"name": "kaveya suresh", "date": "a year ago", "text": "Best service with affordable price. Highly recommended for anyone looking for budget friendly two-wheeler service."}, {"name": "Arjun V", "date": "a year ago", "text": "This was an amazing mechanic shop near Perungudi, Madipakkam, Velachery and Kannachavadi with more services at affordable price."}, {"name": "Afreen Hussain kunnummal", "date": "9 months ago", "text": "Did service in 10 mins, came quick for doorstep service and price is affordable too."}, {"name": "Gokul G", "date": "a year ago", "text": "That mechanic is doing great work at midnight. I am so satisfied. Thank you so much anna for your help at the right time."}, {"name": "veejay3535", "date": "10 months ago", "text": "Great support and timely service, happy with the service, awesome work done by Praveen."}, {"name": "Muthuraj Ramasamy", "date": "8 months ago", "text": "Affordable, clean service, very responsible. Thanks Anna 😊"}, {"name": "VATHU MUTTAI", "date": "a year ago", "text": "Good communication and best service. Thank you for your service. Affordable service charges."}, {"name": "Dhivya K", "date": "11 months ago", "text": "I took a service today for the Activa. It was a quick repair and it was affordable."}, {"name": "Nithiya Devi", "date": "a year ago", "text": "Reached at correct time and did the service neatly 👍 Recommended for two-wheeler service."}, {"name": "JD V L O G E", "date": "a year ago", "text": "Got stuck in the middle of the travel at midnight. He came on time and solved the bike problem."}, {"name": "Vigneshwar", "date": "a year ago", "text": "Good service, especially the way they explain about the issue was much better and transparent."}, {"name": "Saravanan .s", "date": "a year ago", "text": "Thanks nanba, quick ah ready panni kuduthenga. I really satisfied 😊"}, {"name": "Ranjith Yuvaraj", "date": "3 months ago", "text": "Quick response and great job."}, {"name": "Suraj Kumar", "date": "a month ago", "text": "Timely service completion."}, {"name": "SUPER PETS", "date": "a year ago", "text": "Near Perungudi best mechanic service. Highly recommended guys."}, {"name": "Priya", "date": "a year ago", "text": "Good service and the charge is reasonable."}, {"name": "POOJASRI CHINRAJ", "date": "a year ago", "text": "Very fast and reliable service by Praveen."}, {"name": "aanandh subramanian", "date": "7 months ago", "text": "Quick response and speedy service."}, {"name": "Venkatesh Narasimhan", "date": "8 months ago", "text": "Good service, time keeping, focused work."}];
+
+    const grid = document.getElementById('reviewsGrid');
+    const button = document.getElementById('seeMoreReviews');
+    const arrow = document.getElementById('seeMoreArrow');
+
+    function esc(value) {
+      const div = document.createElement('div');
+      div.textContent = value;
+      return div.innerHTML;
+    }
+
+    reviews.forEach((review, index) => {
+      const card = document.createElement('article');
+      card.className = 'review-card' + (index >= 15 ? ' review-hidden' : '');
+      const initial = review.name.trim().charAt(0).toUpperCase();
+
+      card.innerHTML = `
+        <div class="review-top">
+          <div class="review-avatar">${esc(initial)}</div>
+          <div>
+            <h3 class="review-name">${esc(review.name)}</h3>
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="review-date">${esc(review.date)}</div>
+        <p class="review-text">${esc(review.text)}</p>
+      `;
+
+      grid.appendChild(card);
     });
-  });
-</script>
+
+    let expanded = false;
+
+    button.addEventListener('click', () => {
+      expanded = !expanded;
+
+      document.querySelectorAll('.review-card').forEach((card, index) => {
+        if (index >= 15) card.classList.toggle('review-hidden', !expanded);
+      });
+
+      button.firstChild.textContent = expanded ? 'Show Less Reviews ' : 'View All 55 Reviews ';
+      arrow.textContent = expanded ? '↑' : '↓';
+
+      if (expanded) {
+        setTimeout(() => {
+          document.querySelectorAll('.review-card')[15]?.scrollIntoView({behavior:'smooth', block:'center'});
+        }, 80);
+      }
+    });
+
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+    });
+
+    const progress = document.getElementById('sm-progress');
+    function updateProgress(){
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      progress.style.width = max > 0 ? (window.scrollY / max * 100) + '%' : '0%';
+    }
+    window.addEventListener('scroll', updateProgress, {passive:true});
+    updateProgress();
+
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold:.12});
+      reveals.forEach(el => io.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add('visible'));
+    }
+  </script>
 </body>
 </html>
